@@ -1,16 +1,56 @@
-baixa o container que executa a imagem de teste do docker: docker container run hello-world
+LISTAR CONTAINERS------------------------------------
 
-baixar uma imagem e rodar container: docker container run debian(tecnologia que eu quero rodar)
+listar container rodando: docker container ls
 
-baixar um imagem, rodar o container e passar um comando para ser executado dentro do container em seguida: docker container run debian (bash --version) comando que será executado dentro do container
+listar todos os containers independente se está rodando ou não: docker container ls -a
 
-listar container rodando: docker container ps
+-----------------------------------------------------
 
-listar todos os containers independente se está rodando ou não: docker container ps -a
+
+BAIXAR IMAGENS---------------------------------------
+
+listar imagens: docker image ls
+
+baixa o container que executa a imagem de teste do docker: docker container run <nome da imagem>
+
+baixar uma imagem e rodar container: docker container run <nome da imagem>
+
+baixar um imagem, rodar o container e passar um comando para ser executado dentro do container em seguida: docker container run <nome da imagem>(bash --version) comando que será executado dentro do container
+------------------------------------------------------
+
+ACESSAR TERMINAL DO CONTAINER-------------------------
+
+acessar terminal do container: docker exec -it <nome-do-container> /bin/sh ou docker exec -it <nome-do-container> /bin/bash
+
+acessar o terminal do seu container: docker container run -it debian bash(caso você crie algo no container utilizando o run ele cria novos container e então você perde as informações a cada run executad pois recria o container)
+
+executar comando no terminal sem abrir o terminal: docker container exec <nome-do-container> <seu-comando>
+
+------------------------------------------------------
+
+
+MANIPULAÇÃO DO CONTAINER------------------------------
 
 criar container, rodar e apagar após execução: docker container run --rm(flag que indica que deve ser apagado após execução) debian(imagem) bash --version(comando que executa dentro do container)
 
-acessar o terminal do seu container: docker container run -it debian bash(caso você xrie algo no container utilizando o run ele cria novos container e então você perde as informações a cada run executad pois recria o container)
-
 criar container com nome específico: docker container run --name mydeb1 debian
 
+criar container com portas configuradas e para rodar sem travar o terminal e dando nome ao container: docker container run --name nginx -p 8080:80 -d nginx
+
+reiniciar o container(caso trave ou etc): $ docker container restart <nome do container>
+
+desligar o container: $ docker container stop <nome do container>
+
+iniciar container já criado:  $ docker container start <nome do container>
+
+------------------------------------------------------
+
+LOG DO CONTAINER--------------------------------------
+
+acessar o log: docker container logs <nome do container>
+
+acessar dados detalhados do container: $ docker container inspect <nome do container>
+
+VOLUMES----------------------------------------------
+
+listar volumes: docker volume ls
