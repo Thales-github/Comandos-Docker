@@ -1,24 +1,47 @@
-baixa o container que executa a imagem de teste do docker: docker container run hello-world
+Baixar e rodar imagens:
 
-baixar uma imagem e rodar container: docker container run debian(tecnologia que eu quero rodar)
+Baixar e executar uma imagem de teste do Docker
+docker container run hello-world
 
-baixar um imagem, rodar o container e passar um comando para ser executado dentro do container em seguida: docker container run debian (bash --version) comando que será executado dentro do container
+Baixar uma imagem e rodar um container
+docker container run debian
 
-listar container rodando: docker container ps
+Baixar uma imagem, rodar um container e executar um comando dentro dele
+docker container run debian bash --version
 
-listar todos os containers independente se está rodando ou não: docker container ps -a
+Listar containers:
 
-criar container, rodar e apagar após execução: docker container run --rm(flag que indica que deve ser apagado após execução) debian(imagem) bash --version(comando que executa dentro do container)
+Listar containers em execução
+docker container ps
 
-acessar o terminal do seu container: docker exec -it <container_name_or_id> bash
+Listar todos os containers (ativos ou parados)
+docker container ps -a
 
-criar container com nome específico: docker container run --name mydeb1 debian
+Remover containers:
 
-apagar um container: docker rm(remover) mydeb1(nome do container)
+Apagar um container específico
+docker rm mydeb1
 
-rodar container sem que o serviço pare depois: docker run -dit(mantém o container rodando em segundo plano) --name mydeb1 debian bash
+Criar, rodar e apagar um container após a execução
+docker container run --rm debian bash --version
 
-docker container stop mydeb1: parar container
+Gerenciar containers:
 
-docker container run -d -p 8080:80 nginx: rodar container de um servidor(em segundo plano) e liberar terminal para continuar utilizando no modo desacoplado.
-8080 é a porta exposta para a rede e o 80 é a porta interna do container
+Criar um container com um nome específico
+docker container run --name mydeb1 debian
+
+Parar um container em execução
+docker container stop mydeb1
+
+Rodar um container sem que o serviço pare após execução (modo desacoplado)
+docker run -dit --name mydeb1 debian bash
+
+Acessar o terminal de um container:
+
+Acessar o terminal de um container já em execução
+docker exec -it <container_name_or_id> bash
+Rodar um servidor web no Docker:
+
+Rodar um container de servidor e expor uma porta
+docker container run -d -p 8080:80 nginx
+(8080 é a porta exposta para a rede e 80 é a porta interna do container)
