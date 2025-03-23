@@ -54,6 +54,11 @@ docker container run --name mydeb1 debian
 ```sh
 docker container stop mydeb1
 ```
+### iniciar container já criando com build e run(apenas iniciar o container)
+
+```sh
+docker start -ai nomeDoContainer
+```
 
 ### Rodar um container sem que o serviço pare após execução (modo desacoplado)
 ```sh
@@ -87,3 +92,8 @@ docker image build -t nomeDaImagemPersonalizada .
 ```sh
 docker container run -p 80:80 nomeDaImagemPersonalizada
 ```
+
+## Flags de comando Docker
+
+1) -p 80:8000 esta flag indica que a porta que será utilizada na máquina onde o contêiner foi iniciado é a porta 80 e a porta interna do contêiner escutada é 8000
+
