@@ -1,56 +1,105 @@
+COMO RODAR O BUILD E O CONTAINER---------------------
+
+# Construir imagem a partir do Dockerfile (na mesma pasta)
+docker build -t minha-imagem .
+
+# Rodar o container no modo background (detached)
+docker run -d --name meu-container -p 8000:8000 minha-imagem
+
+# Rodar o container e garantir que ele reinicie automaticamente
+docker run -d --name meu-container --restart always -p 8000:8000 minha-imagem
+
+# Verificar se o container está rodando
+docker ps
+
+# Ver os logs do container
+docker logs -f meu-container
+
+-----------------------------------------------------
+
+
 LISTAR CONTAINERS------------------------------------
 
-listar container rodando: docker container ls
+# listar container rodando
+docker container ls
 
-listar todos os containers independente se está rodando ou não: docker container ls -a
+# listar todos os containers independente se está rodando ou não
+docker container ls -a
 
 -----------------------------------------------------
 
 
 BAIXAR IMAGENS---------------------------------------
 
-listar imagens: docker image ls
+# listar imagens
+docker image ls
 
-baixa o container que executa a imagem de teste do docker: docker container run <nome da imagem>
+# baixa o container que executa a imagem de teste do docker
+docker container run <nome da imagem>
 
-baixar uma imagem e rodar container: docker container run <nome da imagem>
+# baixar uma imagem e rodar container
+docker container run <nome da imagem>
 
-baixar um imagem, rodar o container e passar um comando para ser executado dentro do container em seguida: docker container run <nome da imagem>(bash --version) comando que será executado dentro do container
+# baixar uma imagem, rodar o container e passar um comando para ser executado dentro do container em seguida
+docker container run <nome da imagem> bash --version  # comando que será executado dentro do container
+
 ------------------------------------------------------
+
 
 ACESSAR TERMINAL DO CONTAINER-------------------------
 
-acessar terminal do container: docker exec -it <nome-do-container> /bin/sh ou docker exec -it <nome-do-container> /bin/bash
+# acessar terminal do container
+docker exec -it <nome-do-container> /bin/sh
+# ou
+docker exec -it <nome-do-container> /bin/bash
 
-acessar o terminal do seu container: docker container run -it debian bash(caso você crie algo no container utilizando o run ele cria novos container e então você perde as informações a cada run executad pois recria o container)
+# acessar o terminal do seu container
+docker container run -it debian bash
+# (caso você crie algo no container utilizando o run ele cria novos containers, então você perde as informações a cada run executado pois recria o container)
 
-executar comando no terminal sem abrir o terminal: docker container exec <nome-do-container> <seu-comando>
+# executar comando no terminal sem abrir o terminal
+docker container exec <nome-do-container> <seu-comando>
 
 ------------------------------------------------------
 
 
 MANIPULAÇÃO DO CONTAINER------------------------------
 
-criar container, rodar e apagar após execução: docker container run --rm(flag que indica que deve ser apagado após execução) debian(imagem) bash --version(comando que executa dentro do container)
+# criar container, rodar e apagar após execução
+docker container run --rm debian bash --version
 
-criar container com nome específico: docker container run --name mydeb1 debian
+# criar container com nome específico
+docker container run --name mydeb1 debian
 
-criar container com portas configuradas e para rodar sem travar o terminal e dando nome ao container: docker container run --name nginx -p 8080:80 -d nginx
+# criar container com portas configuradas e para rodar sem travar o terminal e dando nome ao container
+docker container run --name nginx -p 8080:80 -d nginx
 
-reiniciar o container(caso trave ou etc): $ docker container restart <nome do container>
+# reiniciar o container (caso trave ou etc)
+docker container restart <nome do container>
 
-desligar o container: $ docker container stop <nome do container>
+# desligar o container
+docker container stop <nome do container>
 
-iniciar container já criado:  $ docker container start <nome do container>
+# iniciar container já criado
+docker container start <nome do container>
 
 ------------------------------------------------------
 
+
 LOG DO CONTAINER--------------------------------------
 
-acessar o log: docker container logs <nome do container>
+# acessar o log
+docker container logs <nome do container>
 
-acessar dados detalhados do container: $ docker container inspect <nome do container>
+# acessar dados detalhados do container
+docker container inspect <nome do container>
+
+------------------------------------------------------
+
 
 VOLUMES----------------------------------------------
 
-listar volumes: docker volume ls
+# listar volumes
+docker volume ls
+
+------------------------------------------------------
