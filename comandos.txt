@@ -102,4 +102,16 @@ VOLUMES----------------------------------------------
 # listar volumes
 docker volume ls
 
-------------------------------------------------------
+Docker Compose--------------------------------------
+
+O que é?
+
+Docker compose serve para gerenciar(orquestrar diversos contêineres). Desse modo você precisa apenas de ter os Docker file de cada imagem necessária e construí-las
+
+Passo a passo com explicação:------------------------
+
+1) Construir as imagens: docker-compose build
+
+2) docker-compose up -d
+
+3) docker-compose down
