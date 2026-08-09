@@ -12,6 +12,7 @@ Guia rápido de referência com os principais comandos Docker e Docker Compose.
 - [Log do container](#log-do-container)
 - [Volumes](#volumes)
 - [Docker Compose](#docker-compose)
+- [Caso tenha dúvidas sobre os comandos?](#caso-tenha-duvidas-sobre-os-comandos?)
 
 ---
 
