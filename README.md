@@ -153,3 +153,20 @@ docker compose up -d
 # 3) Derrubar os containers
 docker compose down
 ```
+
+## Caso tenha dúvidas sobre os comandos?
+
+```bash
+# 1) Comandos de container
+docker container --help
+
+# 2) Comandos de imagem
+docker image --help
+
+# 3) Comandos de volume
+docker volume --help
+
+# 4) Comandos de rede
+docker network --help
+
+```
