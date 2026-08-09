@@ -151,7 +151,10 @@ docker-compose build
 # 2) Subir os containers em background
 docker compose up -d
 
-# 3) Derrubar os containers
+# 3) Caso altere o Dockerfile ou o docker-compose.yml sobe o container já com a alteração aplicada no container
+docker compose up --build
+
+# 4) Derrubar os containers
 docker compose down
 ```
 
