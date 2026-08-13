@@ -19,10 +19,10 @@ Guia rápido de referência com os principais comandos Docker e Docker Compose.
 ## Como rodar o build e o container
 
 ```bash
-# Construir imagem a partir do Dockerfile (na mesma pasta)
+# Construir imagem a partir do Dockerfile (na mesma pasta) e minha-imagem é o nome que você dará a imagem que será gerada a partir do Dockerfile
 docker build -t minha-imagem .
 
-# Rodar o container no modo background (detached)
+# Rodar o container no modo background (detached) e minha-imagem é o nome que você dará a imagem que será gerada a partir do Dockerfile e meu-container o nome da aplicação(container) que vai ser iniciado no docker
 docker run -d --name meu-container -p 8000:8000 minha-imagem
 
 # Rodar o container e garantir que ele reinicie automaticamente
@@ -109,6 +109,9 @@ docker container stop <nome do container>
 
 # Iniciar um container já criado
 docker container start <nome do container>
+
+# Apagar um container (Utilize o docker stop antes para parar o serviço do container antes de apagá-lo)
+docker rm <nome do container>
 ```
 
 ---
