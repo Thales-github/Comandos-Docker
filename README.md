@@ -12,7 +12,8 @@ Guia rápido de referência com os principais comandos Docker e Docker Compose.
 - [Log do container](#log-do-container)
 - [Volumes](#volumes)
 - [Docker Compose](#docker-compose)
-- [Caso tenha dúvidas sobre os comandos?](#caso-tenha-duvidas-sobre-os-comandos?)
+- [Caso tenha dúvidas sobre os comandos](#caso-tenha-dúvidas-sobre-os-comandos)
+- [Estratégias de reinicialização dos contêineres](#estratégias-de-reinicialização-dos-contêineres)
 
 ---
 
@@ -69,9 +70,9 @@ docker container run <nome da imagem> bash --version  # comando executado dentro
 
 ```bash
 # Acessar terminal do container
-docker exec -it <nome-do-container> /bin/sh
+docker exec -it <NOME ou ID do container> /bin/sh
 # ou
-docker exec -it <nome-do-container> /bin/bash
+docker exec -it <NOME ou ID do container> /bin/bash
 
 # Acessar o terminal de um novo container
 docker container run -it debian bash
@@ -83,7 +84,7 @@ docker container run -it debian bash
 
 ```bash
 # Executar comando no terminal sem abrir o terminal interativo
-docker container exec <nome-do-container> <seu-comando>
+docker container exec <NOME ou ID do container> <seu-comando>
 ```
 
 ---
@@ -102,16 +103,19 @@ docker container run --name mydeb1 debian
 docker container run --name nginx -p 8080:80 -d nginx
 
 # Reiniciar o container (caso trave ou etc.)
-docker container restart <nome do container>
+docker container restart <NOME ou ID do container>
 
 # Desligar o container
-docker container stop <nome do container>
+docker container stop <NOME ou ID do container>
 
 # Iniciar um container já criado
-docker container start <nome do container>
+docker container start <NOME ou ID do container>
 
 # Apagar um container (Utilize o docker stop antes para parar o serviço do container antes de apagá-lo)
-docker rm <nome do container>
+docker rm <NOME ou ID do container>
+
+# Exibe as métricas de consumo do contêiner como RAM, CPU, REDE
+docker container stats <NOME ou ID do container>
 ```
 
 ---
@@ -120,10 +124,10 @@ docker rm <nome do container>
 
 ```bash
 # Acessar o log
-docker container logs <nome do container>
+docker container logs <NOME ou ID do container>
 
 # Acessar dados detalhados do container
-docker container inspect <nome do container>
+docker container inspect <NOME ou ID do container>
 ```
 
 ---
@@ -159,6 +163,23 @@ docker compose up --build
 
 # 4) Derrubar os containers
 docker compose down
+```
+
+## Estratégias de reinicialização dos contêineres
+
+```bash
+# O contêiner não será reiniciado automaticamente
+no
+
+# O contêiner sempre reiniciado automaticamente não importa o código de saída
+always
+
+# O contêiner será reiniciado somente se houver uma falha, código de saída != 0
+on-failure
+
+# 4) O contêiner será reiniciado automaticamente, a menos que ele seja parado explicitamente
+unless-stopped
+
 ```
 
 ## Caso tenha dúvidas sobre os comandos?
