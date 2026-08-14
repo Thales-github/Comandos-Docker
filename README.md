@@ -17,9 +17,9 @@ OBS: Os nomes dos arquivos devem sempre ser 'Dockerfile' e 'docker-compose.yml'
 - [Caso tenha dúvidas sobre os comandos](#caso-tenha-dúvidas-sobre-os-comandos)
 - [Estratégias de reinicialização dos contêineres](#estratégias-de-reinicialização-dos-contêineres)
 - [Exemplo de Dockerfile](#exemplo-de-dockerfile)
-- [Exemplo docker-compose.yml com CONTROLE DE STARTUP](#exemplo-docker-compose.yml-com-controle-de-startup)
-- [Exemplo docker-compose.yml rodando MIN-IO](#exemplo-docker-compose.yml-rodando-min-io)
-- [Exemplo docker-compose.yml rodando Wordpress e Mysql com CONTROLE DE STARTUP](#exemplo-docker-compose.yml-rodando-wordpress-e-mysql-com-controle-de-startup)
+- [Exemplo docker-compose.yml com CONTROLE DE STARTUP](#exemplo-docker-composeyml-com-controle-de-startup)
+- [Exemplo docker-compose.yml rodando MIN-IO](#exemplo-docker-composeyml-rodando-min-io)
+- [Exemplo docker-compose.yml rodando Wordpress e Mysql com CONTROLE DE STARTUP](#exemplo-docker-composeyml-rodando-wordpress-e-mysql-com-controle-de-startup)
 ---
 
 
