@@ -14,6 +14,7 @@ Guia rápido de referência com os principais comandos Docker e Docker Compose.
 - [Docker Compose](#docker-compose)
 - [Caso tenha dúvidas sobre os comandos](#caso-tenha-dúvidas-sobre-os-comandos)
 - [Estratégias de reinicialização dos contêineres](#estratégias-de-reinicialização-dos-contêineres)
+- [Exemplo de Dockerfile](#exemplo-de-dockerfile)
 
 ---
 
@@ -153,7 +154,7 @@ em conjunto.
 
 ```bash
 # 1) Construir as imagens
-docker-compose build
+docker compose build
 
 # 2) Subir os containers em background
 docker compose up -d
@@ -163,6 +164,12 @@ docker compose up --build
 
 # 4) Derrubar os containers
 docker compose down
+
+# 5) Verificar logs dos serviços do contêiner
+docker compose logs
+
+# 6) Listar serviços em execução
+docker compose ps ou docker compose ls
 ```
 
 ## Estratégias de reinicialização dos contêineres
@@ -196,5 +203,26 @@ docker volume --help
 
 # 4) Comandos de rede
 docker network --help
+
+```
+
+## Exemplo de Dockerfile
+
+```bash
+
+# Use uma imagem base do Python
+FROM python:3.14-slim
+
+#Defina o diretório de trabalho dentro do contêiner
+WORKDIR /app
+
+# Copie os arquivos do projeto para o diretório de trabalho
+COPY . /app
+
+# Instale as dependências do projeto
+RUN pip install -r requirements.txt
+
+# Comando para executar a aplicação
+CMD ["python", "python2.py"]
 
 ```
